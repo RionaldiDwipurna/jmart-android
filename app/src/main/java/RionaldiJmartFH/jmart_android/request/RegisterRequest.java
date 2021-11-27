@@ -10,7 +10,7 @@ import java.util.Map;
 import javax.xml.transform.ErrorListener;
 
 public class RegisterRequest extends StringRequest {
-    private static final String URL = "http://10.0.2.2:/6969/account/register";
+    private static final String URL = "http://10.0.2.2:6969/account/register";
     private final Map<String,String> params;
 
     public RegisterRequest(String name, String email, String password, Response.Listener<String> listener, Response.ErrorListener errorListener)

@@ -54,7 +54,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Don't have account?"
@@ -67,7 +67,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/Register2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register now!"

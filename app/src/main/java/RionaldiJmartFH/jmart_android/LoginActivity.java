@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -41,7 +42,14 @@ public class LoginActivity extends AppCompatActivity {
         EditText email = findViewById(R.id.editTextTextEmailAddress5);
         EditText password = findViewById(R.id.editTextTextPassword3);
         Button button = findViewById(R.id.button);
-
+        TextView register = findViewById(R.id.Register2);
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
