@@ -12,34 +12,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Email"
+        android:hint="Password"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="329dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.476"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Password"
+        android:hint="Email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        tools:ignore="MissingConstraints,TextContrastCheck"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="271dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.404"
+        tools:ignore="MissingConstraints,TextContrastCheck" />
 
     <Button
+        android:id="@+id/button"
         android:layout_width="100dp"
         android:layout_height="48dp"
         android:background="#757575"
         android:text="Login"
+        android:clickable="true"
         android:textColor="@android:color/black"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="401dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.553"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView"
@@ -47,9 +59,12 @@
         android:layout_height="wrap_content"
         android:text="Don't have account?"
         android:textColor="#0000FF"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="484dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.645"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView2"
@@ -57,8 +72,12 @@
         android:layout_height="wrap_content"
         android:text="Register now!"
         android:textColor="#0000FF"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="512dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
