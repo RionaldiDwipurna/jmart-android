@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutMeActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="335dp"
+            android:layout_height="572dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.135"
+            tools:ignore="MissingConstraints">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/AccDetail"
+                    android:layout_width="135dp"
+                    android:layout_height="41dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Create Product"
+                    android:textSize="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/CPName"
+                    android:layout_width="285dp"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="28dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="Name"
+                    android:textColorHint="@color/GreyText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.444"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/AccDetail" />
+
+                <EditText
+                    android:id="@+id/CPPrice"
+                    android:layout_width="285dp"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="16dp"
+                    android:ems="10"
+                    android:inputType="numberSigned"
+                    android:hint="Price"
+                    android:textColorHint="@color/GreyText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.444"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/CPWeight" />
+
+                <EditText
+                    android:id="@+id/CPDiscount"
+                    android:layout_width="285dp"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="16dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:hint="Discount"
+                    android:textColorHint="@color/GreyText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.444"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/CPPrice" />
+
+                <EditText
+                    android:id="@+id/CPWeight"
+                    android:layout_width="285dp"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="16dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:hint="Weight"
+                    android:textColorHint="@color/GreyText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.444"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/CPName" />
+
+                <TextView
+                    android:id="@+id/textCondition"
+                    android:layout_width="83dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="28dp"
+                    android:text="Condition"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/CPDiscount" />
+
+                <TextView
+                    android:id="@+id/textCategory"
+                    android:layout_width="83dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:text="Category"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textCondition" />
+
+                <TextView
+                    android:id="@+id/textShipment"
+                    android:layout_width="109dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:text="Shipment Plan"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textCategory" />
+
+                <RadioGroup
+                    android:id="@+id/radioId"
+                    android:layout_width="153dp"
+                    android:layout_height="47dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/CPDiscount">
+
+                    <RadioButton
+                        android:id="@+id/radioUsed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Used"
+                        android:layout_marginLeft="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/CPDiscount" />
+
+                    <RadioButton
+                        android:id="@+id/radioNew"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New"
+                        android:layout_marginLeft="10dp"
+                        app:layout_constraintEnd_toStartOf="@+id/radioButton"
+                        app:layout_constraintTop_toBottomOf="@+id/CPDiscount" />
+                </RadioGroup>
+
+                <Spinner
+                    android:id="@+id/categorySpinner"
+                    android:layout_width="138dp"
+                    android:layout_height="22dp"
+                    android:layout_marginTop="15dp"
+                    android:entries="@array/productCategory"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.879"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioId"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <Spinner
+                    android:id="@+id/shipmentSpinner"
+                    android:layout_width="138dp"
+                    android:layout_height="22dp"
+                    android:entries="@array/shipmentPlans"
+                    android:spinnerMode="dropdown"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.879"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/categorySpinner"
+                    app:layout_constraintVertical_bias="0.256" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/CreateButt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="24dp"
+            android:text="Create"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/GreyButtom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_view" />
+
+        <Button
+            android:id="@+id/CancelButt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="64dp"
+            android:text="Cancel"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/GreyButtom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_view" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

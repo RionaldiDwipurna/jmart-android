@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutMeActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="339dp"
+            android:layout_height="674dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/AccDetail"
+                    android:layout_width="135dp"
+                    android:layout_height="41dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="28dp"
+                    android:text="Account Details"
+                    android:textSize="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/AboutName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="31dp"
+                    android:text="Name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/AccDetail" />
+
+                <TextView
+                    android:id="@+id/AboutEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Email"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/AboutName" />
+
+                <TextView
+                    android:id="@+id/AboutBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="28dp"
+                    android:text="Balance"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/AboutEmail" />
+
+                <EditText
+                    android:id="@+id/TopUpButton"
+                    android:layout_width="177dp"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="232dp"
+                    android:ems="10"
+                    android:hint="Top Up Amount"
+                    android:inputType="textPersonName"
+                    android:textColorHint="@color/GreyText"
+                    android:textSize="13dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="380dp"
+                    android:backgroundTint="@color/GreyButtom"
+                    android:textColor="@color/black"
+                    android:text="Top Up"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.567"
+                    app:layout_constraintStart_toEndOf="@+id/TopUpButton" />
+
+                <Button
+                    android:id="@+id/ButtonRegister"
+                    android:visibility="invisible"
+                    android:layout_width="280dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="50dp"
+                    android:backgroundTint="#8F8E8E"
+                    android:text="Register Store"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.644"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/TopUpButton"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/NameDyn"
+                    android:textAlignment="textEnd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="156dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="TextView"
+                    app:layout_constraintBottom_toTopOf="@+id/EmailDyn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.355"
+                    app:layout_constraintStart_toEndOf="@+id/AboutName" />
+
+                <TextView
+                    android:id="@+id/EmailDyn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="28dp"
+                    android:text="TextView"
+                    app:layout_constraintBottom_toTopOf="@+id/BalanceDyn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.857"
+                    app:layout_constraintStart_toEndOf="@+id/AboutEmail" />
+
+                <TextView
+                    android:id="@+id/BalanceDyn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="TextView"
+                    app:layout_constraintBottom_toTopOf="@+id/button4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.846"
+                    app:layout_constraintStart_toEndOf="@+id/AboutBalance" />
+
+                <androidx.cardview.widget.CardView
+                    android:visibility="invisible"
+                    android:id="@+id/card_view2"
+                    android:layout_width="303dp"
+                    android:layout_height="349dp"
+                    android:layout_marginTop="18dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/TopUpButton"
+                    app:layout_constraintVertical_bias="0.0" >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <TextView
+                            android:id="@+id/accDetail2"
+                            android:layout_width="107dp"
+                            android:layout_height="29dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:text="Register Store"
+                            android:textSize="15dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <EditText
+                            android:id="@+id/RegisterName"
+                            android:layout_width="258dp"
+                            android:layout_height="43dp"
+                            android:layout_marginTop="28dp"
+                            android:ems="10"
+                            android:hint="Name"
+                            android:inputType="text"
+                            android:textColorHint="@color/GreyText"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.488"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/accDetail2" />
+
+                        <EditText
+                            android:id="@+id/RegisterAddress"
+                            android:layout_width="258dp"
+                            android:layout_height="43dp"
+                            android:layout_marginTop="24dp"
+                            android:ems="10"
+                            android:hint="Address"
+                            android:inputType="text"
+                            android:textColorHint="@color/GreyText"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.488"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/RegisterName" />
+
+                        <EditText
+                            android:id="@+id/RegisterPhone"
+                            android:layout_width="258dp"
+                            android:layout_height="43dp"
+                            android:layout_marginTop="24dp"
+                            android:ems="10"
+                            android:hint="Phone Number"
+                            android:inputType="number"
+                            android:textColorHint="@color/GreyText"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.488"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/RegisterAddress" />
+
+                        <Button
+                            android:id="@+id/RegisterButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="28dp"
+                            android:layout_marginTop="18dp"
+                            android:text="Register"
+                            android:textColor="@color/black"
+                            android:backgroundTint="@color/GreyButtom"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/RegisterPhone" />
+
+                        <Button
+                            android:id="@+id/CancelButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="18dp"
+                            android:layout_marginEnd="20dp"
+                            android:text="Cancel"
+                            android:textColor="@color/black"
+                            android:backgroundTint="@color/GreyButtom"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/RegisterPhone" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:visibility="invisible"
+                    android:id="@+id/card_view3"
+                    android:layout_width="303dp"
+                    android:layout_height="349dp"
+                    android:layout_marginTop="18dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/TopUpButton"
+                    app:layout_constraintVertical_bias="0.0" >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <TextView
+                            android:id="@+id/Vaddress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="28dp"
+                            android:layout_marginTop="20dp"
+                            android:text="Address"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/Vname" />
+
+                        <TextView
+                            android:id="@+id/StoreName"
+                            android:layout_width="67dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="28dp"
+                            android:layout_marginTop="24dp"
+                            android:text="Store"
+                            android:textSize="15dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/Vname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="28dp"
+                            android:layout_marginTop="32dp"
+                            android:text="Name"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/StoreName" />
+
+                        <TextView
+                            android:id="@+id/Vphone"
+                            android:layout_width="101dp"
+                            android:layout_height="19dp"
+                            android:layout_marginStart="28dp"
+                            android:layout_marginTop="20dp"
+                            android:text="Phone Number"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/Vaddress" />
+
+                        <TextView
+                            android:id="@+id/PersonName"
+                            android:layout_width="118dp"
+                            android:layout_height="21dp"
+                            android:layout_marginTop="96dp"
+                            android:layout_marginEnd="16dp"
+                            android:text="TextView"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/StoreAddress"
+                            android:layout_width="118dp"
+                            android:layout_height="21dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="16dp"
+                            android:text="TextView"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/PersonName" />
+
+                        <TextView
+                            android:id="@+id/PersonPhone"
+                            android:layout_width="118dp"
+                            android:layout_height="21dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="16dp"
+                            android:text="TextView"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/StoreAddress" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
