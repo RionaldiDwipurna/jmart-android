@@ -80,9 +80,10 @@ public class AboutMeActivity extends AppCompatActivity {
                             Response.Listener<String> listener = new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
+                                    System.out.println(getLoggedAccount().id);
                                     try {
-                                        JSONObject jObject = new JSONObject(response);
-                                        if (jObject != null) {
+                                        JSONObject Object = new JSONObject(response);
+                                        if (Object != null) {
                                             Toast.makeText(AboutMeActivity.this, "Register Success!", Toast.LENGTH_LONG).show();
                                             card2.setVisibility(View.GONE);
                                             card3.setVisibility(View.VISIBLE);

@@ -126,4 +126,5 @@ public class FilterFragment extends Fragment {
             }
         });
     }
+
 }
