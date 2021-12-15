@@ -9,7 +9,7 @@ public class RequestFactory
 {
     private static final String URL_FORMAT_ID = "http://10.0.2.2:6969/%s/%d";
     private static final String URL_FORMAT_PAGE = "http://10.0.2.2:6969/%s/page?page=%s&pageSize=%s";
-    private static final String URL_FORMAT_PRODUCT = "http://10.0.2.2:8090/%d/%d/%s/%s/%s/%s/%s";
+    private static final String URL_FORMAT_PRODUCT = "http://10.0.2.2:6969/product/getFiltered?page=%s&pageSize=%s&accountId=%d&search=%s&minPrice=%s&maxPrice=%s&category=%s&conditionUsed=%s";
     public static StringRequest getById
             (
                     String parentURI,
@@ -37,7 +37,8 @@ public class RequestFactory
     public static StringRequest getProduct(
         int page,
         int pageSize,
-        String name,
+        int id,
+        String search,
         String minPrice,
         String maxPrice,
         String category,
@@ -46,8 +47,9 @@ public class RequestFactory
         Response.ErrorListener errorListener
     )
     {
-        String url = String.format(URL_FORMAT_PRODUCT, page, pageSize, name, minPrice, maxPrice, category, conditionUsed);
+        String url = String.format(URL_FORMAT_PRODUCT,page,pageSize,id,search,minPrice,maxPrice,category,conditionUsed);
         return new StringRequest(Request.Method.GET, url, listener, errorListener);
 
     }
+
 }

@@ -13,6 +13,10 @@
         android:theme="@style/Theme.Jmartandroid"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ProductDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="false" />
+        <activity
             android:name=".CreateProductActivity"
             android:exported="false"
             android:label="Create Product Activity" />

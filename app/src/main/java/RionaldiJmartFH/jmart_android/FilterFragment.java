@@ -1,5 +1,7 @@
 package RionaldiJmartFH.jmart_android;
 
+import static RionaldiJmartFH.jmart_android.LoginActivity.getLoggedAccount;
+
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,11 +15,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONArray;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashSet;
+
+import RionaldiJmartFH.jmart_android.model.Product;
+import RionaldiJmartFH.jmart_android.model.ProductCategory;
+import RionaldiJmartFH.jmart_android.request.RequestFactory;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,7 +46,9 @@ import android.widget.Toast;
  * create an instance of this fragment.
  */
 public class FilterFragment extends Fragment {
-
+    private static final Gson gson = new Gson();
+    public static final ArrayList<String> productName = new ArrayList<>(new HashSet<>());
+    public static ArrayList<Product> products = new ArrayList<>();
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -70,7 +93,75 @@ public class FilterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_filter, container, false);
+
+        View v = inflater.inflate(R.layout.fragment_filter, container, false);
+
+        EditText search = v.findViewById(R.id.filterName);
+        EditText minPrice = v.findViewById(R.id.filterLowest);
+        EditText maxPrice = v.findViewById(R.id.filterHighest);
+        CheckBox checkNew = v.findViewById(R.id.checkNew);
+        Spinner category = v.findViewById(R.id.spinner2);
+        Button filter = v.findViewById(R.id.FilterButton);
+        Button clear = v.findViewById(R.id.ClearButton);
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                search.getText().clear();
+                minPrice.getText().clear();
+                maxPrice.getText().clear();
+
+            }
+        });
+        category.setAdapter(new ArrayAdapter<ProductCategory>(getContext(), android.R.layout.simple_spinner_dropdown_item, ProductCategory.values()));
+
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                productName.clear();
+                boolean used = !checkNew.isChecked();
+                System.out.println(used);
+                Response.Listener<String> listener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        System.out.println(response);
+                        try {
+                            JSONArray jArray = new JSONArray(response);
+                            Type type = new TypeToken<ArrayList<Product>>(){}.getType();
+                            products = gson.fromJson(String.valueOf(jArray), type);
+                            System.out.println(jArray);
+                            for (Product prod : products) {
+                                productName.add(prod.name.toString());
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                try {
+                    Response.ErrorListener errorListener = new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(getActivity(), "Error Terjadi!", Toast.LENGTH_LONG).show();
+                        }
+                    };
+                    StringRequest request = RequestFactory.getProduct(1,5,getLoggedAccount().id,search.getText().toString(),
+                            minPrice.getText().toString(), maxPrice.getText().toString(),category.getSelectedItem().toString(),String.valueOf(used),
+                            listener, errorListener);
+                    RequestQueue queue = Volley.newRequestQueue(getActivity());
+                    queue.add(request);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(getActivity(), "Error Terjadi!", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
+
+
+
+        return v;
     }
 
     @Override
@@ -81,8 +172,8 @@ public class FilterFragment extends Fragment {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    filterLabelNama.setTextColor(getResources().getColor(R.color.purple_200));
-                    filterTextName.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFBB86FC")));
+                    filterLabelNama.setTextColor(getResources().getColor(R.color.colorPrimary));
+                    filterTextName.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#0947E8")));
                     filterLabelNama.setHint("Nama Product");
                 } else {
                     filterLabelNama.setHint("");
@@ -98,8 +189,8 @@ public class FilterFragment extends Fragment {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    filterLabelLowest.setTextColor(getResources().getColor(R.color.purple_200));
-                    filterTextLowest.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFBB86FC")));
+                    filterLabelLowest.setTextColor(getResources().getColor(R.color.colorPrimary));
+                    filterTextLowest.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#0947E8")));
                     filterLabelLowest.setHint("Ex: 1000");
                 } else {
                     filterLabelLowest.setHint("");
@@ -115,8 +206,8 @@ public class FilterFragment extends Fragment {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
-                    filterLabelHighest.setTextColor(getResources().getColor(R.color.purple_200));
-                    filterTextHighest.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FFBB86FC")));
+                    filterLabelHighest.setTextColor(getResources().getColor(R.color.colorPrimary));
+                    filterTextHighest.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#0947E8")));
                     filterLabelHighest.setHint("Ex: 1000");
                 } else {
                     filterLabelHighest.setHint("");
@@ -126,5 +217,6 @@ public class FilterFragment extends Fragment {
             }
         });
     }
+
 
 }

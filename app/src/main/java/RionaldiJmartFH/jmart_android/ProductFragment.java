@@ -1,5 +1,8 @@
 package RionaldiJmartFH.jmart_android;
 
+import static RionaldiJmartFH.jmart_android.FilterFragment.productName;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,8 +12,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,7 +32,8 @@ import java.util.List;
 public class ProductFragment extends Fragment {
 
 
-
+    final int pageSize = 10;
+    static Integer page = 0;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -63,18 +72,65 @@ public class ProductFragment extends Fragment {
     }
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_product, container, false);
+        EditText pageNumber = (EditText) v.findViewById(R.id.IndexNumber);
+        Button next = (Button) v.findViewById(R.id.NextButton);
+        Button prev = (Button) v.findViewById(R.id.PrevButton);
+        Button go = (Button) v.findViewById(R.id.GoButton);
+        pageNumber.setText(String.valueOf(page+1), TextView.BufferType.EDITABLE);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                page += 1;
+                getActivity().finish();
+                getActivity().overridePendingTransition(0,0);
+                getActivity().startActivity(getActivity().getIntent());
+            }
+        });
 
-        String[] mobileArray = {"Chitato Chocolatos","Rexus Ubuntu","Phillips Ubuntu","Phillips GTX",
-                "Windows Premium","Sharp Sharp","Redmi Lexus","LG LG"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, mobileArray);
+        prev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                page -= 1;
+                getActivity().finish();
+                getActivity().overridePendingTransition(0,0);
+                getActivity().startActivity(getActivity().getIntent());
+            }
+        });
+
+        go.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                page = Integer.parseInt(pageNumber.getText().toString()) - 1;
+                getActivity().finish();
+                getActivity().overridePendingTransition(0,0);
+                getActivity().startActivity(getActivity().getIntent());
+            }
+        });
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, productName);
 
         ListView listView = (ListView) v.findViewById(R.id.ListProduct);
         listView.setAdapter(adapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                intent.putExtra("Pos",position);
+                startActivity(intent);
+
+
+            }
+
+
+        });
 
 
         // Inflate the layout for this fragment

@@ -21,6 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import RionaldiJmartFH.jmart_android.request.CreateStoreRequest;
+import RionaldiJmartFH.jmart_android.request.TopUpRequest;
 
 public class AboutMeActivity extends AppCompatActivity {
 
@@ -40,7 +41,29 @@ public class AboutMeActivity extends AppCompatActivity {
         NameDyn.setText(getLoggedAccount().name);
         EmailDyn.setText(getLoggedAccount().email);
         BalanceDyn.setText(String.valueOf(getLoggedAccount().balance));
+        Button topUpButton = findViewById(R.id.TopUpButton);
+        topUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText storeBalance = findViewById(R.id.TopUp);
+                Response.Listener<String> listener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(AboutMeActivity.this, "Top Up Success", Toast.LENGTH_SHORT).show();
+                    }
+                };
+                Response.ErrorListener errorListener = new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error){
+                        Toast.makeText(AboutMeActivity.this, "Listener Error", Toast.LENGTH_LONG).show();
+                    }
+                };
+                TopUpRequest newTopUpRequest = new TopUpRequest(LoginActivity.getLoggedAccount().id, storeBalance.getText().toString(), listener, errorListener);
+                RequestQueue queue = Volley.newRequestQueue(AboutMeActivity.this);
+                queue.add(newTopUpRequest);
 
+            }
+        });
 
         if(getLoggedAccount().store != null){
             card3.setVisibility(View.VISIBLE);
@@ -70,7 +93,12 @@ public class AboutMeActivity extends AppCompatActivity {
                 cancel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        System.out.println("Cancel");
+                        storeAddress.getText().clear();
+                        storePhoneNumber.getText().clear();
+                        storeName.getText().clear();
+                        card2.setVisibility(View.INVISIBLE);
+                        Register.setVisibility(View.VISIBLE);
+
                     }
                 });
                 registerStore.setOnClickListener(new View.OnClickListener() {

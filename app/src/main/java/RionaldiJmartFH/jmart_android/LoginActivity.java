@@ -1,5 +1,6 @@
 package RionaldiJmartFH.jmart_android;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -38,10 +39,11 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
-        EditText email = findViewById(R.id.editTextTextEmailAddress5);
-        EditText password = findViewById(R.id.editTextTextPassword3);
-        Button button = findViewById(R.id.button);
+        EditText email = findViewById(R.id.editTextEmail);
+        EditText password = findViewById(R.id.editTextPassword);
+        Button button = findViewById(R.id.cirLoginButton);
         TextView register = findViewById(R.id.Register2);
         register.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -46,16 +47,25 @@ public class CreateProductActivity extends AppCompatActivity {
         Spinner productShipmentPlans = findViewById(R.id.shipmentSpinner);
 
         Button productCreate = findViewById(R.id.CreateButt);
+        Button cancelB = findViewById(R.id.CancelButt);
+        productCategory.setAdapter(new ArrayAdapter<ProductCategory>(this, android.R.layout.simple_spinner_dropdown_item, ProductCategory.values()));
+
+        cancelB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         productCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 conditionUsed = !radioNew.isChecked();
 
                 byte validShipmentPlan = checkShipmentPlan(productShipmentPlans);
-
                 Response.Listener<String> listener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        System.out.println(response);
                         try {
                             JSONObject jObject = new JSONObject(response);
                             if (jObject != null) {
@@ -78,7 +88,7 @@ public class CreateProductActivity extends AppCompatActivity {
                     }
                 };
                 CreateProductRequest createRequest = new CreateProductRequest(
-                        String.valueOf(LoginActivity.getLoggedAccount().id),
+                        String.valueOf(getLoggedAccount().id),
                         productName.getText().toString(),
                         productWeight.getText().toString(),
                         String.valueOf(conditionUsed),
