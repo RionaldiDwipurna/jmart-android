@@ -7,6 +7,11 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *  Request to accept the payment
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public class AcceptRequest extends StringRequest {
     private static final String URL = "http://10.0.2.2:6969/payment/%d/accept";
     private static Map<String, String> params = new HashMap<>();

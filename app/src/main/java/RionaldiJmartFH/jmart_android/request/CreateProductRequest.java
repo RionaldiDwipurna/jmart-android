@@ -9,9 +9,15 @@ import java.util.Map;
 
 import RionaldiJmartFH.jmart_android.CreateProductActivity;
 
+/**
+ *  Request to create a product
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public class CreateProductRequest extends StringRequest {
     private static final String URL = "http://10.0.2.2:6969/product/create";
     private final Map<String,String> params;
+
 
     public CreateProductRequest(String accountId, String name, String weight, String conditionUsed,
                                 String price, String discount, String category, String shipmentPlans,

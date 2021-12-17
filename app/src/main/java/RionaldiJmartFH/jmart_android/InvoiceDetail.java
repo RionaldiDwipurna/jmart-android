@@ -27,7 +27,11 @@ import java.util.ArrayList;
 import RionaldiJmartFH.jmart_android.model.Payment;
 import RionaldiJmartFH.jmart_android.model.Product;
 import RionaldiJmartFH.jmart_android.request.SubmitRequest;
-
+/**
+ *  Activity display the detail of the activity from invoice activity
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public class InvoiceDetail extends AppCompatActivity {
 
     @Override

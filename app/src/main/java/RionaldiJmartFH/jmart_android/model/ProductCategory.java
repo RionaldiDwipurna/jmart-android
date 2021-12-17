@@ -1,5 +1,9 @@
 package RionaldiJmartFH.jmart_android.model;
-
+/**
+ *  Enumaration of product type
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public enum ProductCategory
 {
     BOOK, KITCHEN ,ELECTRONIC, FASHION, GAMING, GADGET, MOTHERCARE,

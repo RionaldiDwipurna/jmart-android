@@ -7,6 +7,11 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *  Request to top up account balance
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public class TopUpRequest extends StringRequest {
     private static final String URL = "http://10.0.2.2:6969/account/%d/topUp";
     private static Map<String, String> params = new HashMap<>();

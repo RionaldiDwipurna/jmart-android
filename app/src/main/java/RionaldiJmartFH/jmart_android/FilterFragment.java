@@ -41,9 +41,9 @@ import RionaldiJmartFH.jmart_android.model.ProductCategory;
 import RionaldiJmartFH.jmart_android.request.RequestFactory;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link FilterFragment#newInstance} factory method to
- * create an instance of this fragment.
+ *  Activity to filter the product
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
  */
 public class FilterFragment extends Fragment {
     private static final Gson gson = new Gson();
@@ -63,14 +63,7 @@ public class FilterFragment extends Fragment {
 
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FilterFragment.
-     */
+
     // TODO: Rename and change types and number of parameters
     public static FilterFragment newInstance(String param1, String param2) {
         FilterFragment fragment = new FilterFragment();
@@ -163,7 +156,9 @@ public class FilterFragment extends Fragment {
 
         return v;
     }
-
+    /**
+     * For displaying color change in the textview and text field
+     */
     @Override
     public void onViewCreated(View v, @Nullable Bundle savedInstanceState) {
         EditText filterTextName = getView().findViewById(R.id.filterName);

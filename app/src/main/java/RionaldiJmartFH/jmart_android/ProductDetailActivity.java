@@ -32,7 +32,11 @@ import RionaldiJmartFH.jmart_android.model.Payment;
 import RionaldiJmartFH.jmart_android.model.Product;
 import RionaldiJmartFH.jmart_android.model.ProductCategory;
 import RionaldiJmartFH.jmart_android.request.PaymentCreateRequest;
-
+/**
+ *  Display the detail of the product
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public class ProductDetailActivity extends AppCompatActivity {
     private static final Gson gson = new Gson();
     private static Payment paymentDetail = null;

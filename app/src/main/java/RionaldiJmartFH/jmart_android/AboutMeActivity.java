@@ -24,8 +24,21 @@ import org.json.JSONObject;
 import RionaldiJmartFH.jmart_android.request.CreateStoreRequest;
 import RionaldiJmartFH.jmart_android.request.TopUpRequest;
 
+/**
+ *  Activity to show the detail of the user
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
+
 public class AboutMeActivity extends AppCompatActivity {
 
+
+    /**
+     *  To display the content from xml file to phone screen
+     *  If the user doesn't have any store before, the user can create the store
+     *  The user can see the invoice detail after creating the store
+     *  The user can top up balance
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

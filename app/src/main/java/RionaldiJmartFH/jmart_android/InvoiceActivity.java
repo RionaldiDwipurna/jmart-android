@@ -31,7 +31,11 @@ import java.util.HashSet;
 import RionaldiJmartFH.jmart_android.model.Payment;
 import RionaldiJmartFH.jmart_android.model.Product;
 import RionaldiJmartFH.jmart_android.request.RequestFactory;
-
+/**
+ *  Activity to display the list of store's invoice
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public class InvoiceActivity extends AppCompatActivity {
     private static final Gson gson = new Gson();
     public static final ArrayList<Integer> invoiceId = new ArrayList<>();

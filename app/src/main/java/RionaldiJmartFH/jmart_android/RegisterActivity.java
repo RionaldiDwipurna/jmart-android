@@ -21,7 +21,11 @@ import org.json.JSONObject;
 import RionaldiJmartFH.jmart_android.model.Account;
 import RionaldiJmartFH.jmart_android.request.LoginRequest;
 import RionaldiJmartFH.jmart_android.request.RegisterRequest;
-
+/**
+ *  Activity to register a new account
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

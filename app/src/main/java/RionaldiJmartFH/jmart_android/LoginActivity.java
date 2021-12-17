@@ -29,11 +29,19 @@ import java.security.AccessControlContext;
 import RionaldiJmartFH.jmart_android.model.Account;
 import RionaldiJmartFH.jmart_android.request.LoginRequest;
 
+/**
+ *  Activity to logged the user in
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 
 public class LoginActivity extends AppCompatActivity {
     private static final Gson gson = new Gson();
     private static Account loggedAccount = null;
 
+    /**
+     *  To return the logged account
+     */
     public static Account getLoggedAccount(){
         return loggedAccount;
     }
@@ -51,6 +59,9 @@ public class LoginActivity extends AppCompatActivity {
     SharedPreferences sharedpreferences;
     String savedEmail, savedPassword;
 
+    /**
+     *  To automaticly start the account if the user hasn't logged out
+     */
     @Override
     protected void onStart() {
         super.onStart();

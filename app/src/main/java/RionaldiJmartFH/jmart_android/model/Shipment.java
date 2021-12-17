@@ -3,7 +3,11 @@ package RionaldiJmartFH.jmart_android.model;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
+/**
+ *  Base mode of the shipment
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public class Shipment
 {
 

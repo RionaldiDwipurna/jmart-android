@@ -25,9 +25,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProductFragment#newInstance} factory method to
- * create an instance of this fragment.
+ *  Display the list of product after the product get filtered
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
  */
 public class ProductFragment extends Fragment {
 
@@ -47,14 +47,7 @@ public class ProductFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ProductFragment.
-     */
+
     // TODO: Rename and change types and number of parameters
     public static ProductFragment newInstance(String param1, String param2) {
         ProductFragment fragment = new ProductFragment();

@@ -9,7 +9,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.xml.transform.ErrorListener;
-
+/**
+ *  Request logged the account
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public class LoginRequest extends StringRequest {
     private static final String URL = "http://10.0.2.2:6969/account/login";
     private final Map<String,String> params;

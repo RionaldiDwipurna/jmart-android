@@ -8,7 +8,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import RionaldiJmartFH.jmart_android.LoginActivity;
-
+/**
+ *  Request to create a store
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public class CreateStoreRequest extends StringRequest {
     private static final String URL = "http://10.0.2.2:6969/account/%d/registerStore";
     private static Map<String, String> params = new HashMap<>();

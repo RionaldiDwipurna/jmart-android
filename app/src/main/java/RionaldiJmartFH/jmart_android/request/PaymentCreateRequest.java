@@ -7,6 +7,11 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *  Request to create a payment
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public class PaymentCreateRequest extends StringRequest {
     private static final String URL = "http://10.0.2.2:6969/payment/create";
     private final Map<String,String> params;

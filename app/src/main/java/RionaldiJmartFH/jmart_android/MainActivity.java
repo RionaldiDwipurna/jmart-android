@@ -16,7 +16,11 @@ import android.view.MenuItem;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-
+/**
+ *  The main activity after logged in
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public class MainActivity extends AppCompatActivity{
     // creating constant keys for shared preferences.
     public static final String SHARED_PREFS = "shared_prefs";
@@ -35,7 +39,9 @@ public class MainActivity extends AppCompatActivity{
     ViewPager2 viewpager2;
     TabLayout tablayout;
 
-
+    /**
+     *  Display the filter and product tab
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +79,9 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
+    /**
+     *  If the store already created, the menu bar will display the add item section
+     */
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
@@ -82,6 +91,9 @@ public class MainActivity extends AppCompatActivity{
         return true;
     }
 
+    /**
+     *  Logic when the menu items are clicked
+     */
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()) {
             case R.id.person:

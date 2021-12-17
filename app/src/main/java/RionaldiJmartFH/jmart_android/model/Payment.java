@@ -3,6 +3,12 @@ package RionaldiJmartFH.jmart_android.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ *  Base mode of the payment
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
+
 public class Payment extends Invoice{
     public ArrayList<Record> history = new ArrayList<>();
     public int productCount;

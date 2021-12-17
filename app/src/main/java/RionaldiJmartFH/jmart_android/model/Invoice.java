@@ -2,6 +2,13 @@ package RionaldiJmartFH.jmart_android.model;
 
 import java.util.Date;
 
+/**
+ *  Base mode of the invoice
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
+
+
 public abstract class Invoice extends Serializable
 {
     public int buyerId;

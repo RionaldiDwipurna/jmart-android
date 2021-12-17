@@ -1,11 +1,18 @@
 package RionaldiJmartFH.jmart_android.model;
 
 import java.util.HashMap;
-
+/**
+ *  To give account id
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public class Serializable {
     private static HashMap<Class<?>, Integer> mapCounter = new HashMap<>();
     public final int id;
 
+    /**
+     * Initialized the id
+     */
     protected Serializable()
     {
         Integer counter = mapCounter.get(getClass());

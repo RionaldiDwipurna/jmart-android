@@ -24,7 +24,11 @@ import org.json.JSONObject;
 
 import RionaldiJmartFH.jmart_android.model.ProductCategory;
 import RionaldiJmartFH.jmart_android.request.CreateProductRequest;
-
+/**
+ *  Activity to create the product
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public class CreateProductActivity extends AppCompatActivity {
 
     private ProductCategory category;

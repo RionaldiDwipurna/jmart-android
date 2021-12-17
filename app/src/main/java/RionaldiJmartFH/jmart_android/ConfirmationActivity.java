@@ -18,8 +18,13 @@ import com.android.volley.toolbox.Volley;
 
 import RionaldiJmartFH.jmart_android.request.AcceptRequest;
 import RionaldiJmartFH.jmart_android.request.CancelRequest;
-
+/**
+ *  Activity to confirm the payment
+ *
+ * @author Rionaldi Dwipurna Wongsoputra
+ */
 public class ConfirmationActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
