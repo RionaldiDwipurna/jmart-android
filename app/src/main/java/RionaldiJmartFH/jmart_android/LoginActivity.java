@@ -49,12 +49,12 @@ public class LoginActivity extends AppCompatActivity {
 
     // variable for shared preferences.
     SharedPreferences sharedpreferences;
-    String emailses, passwordses;
+    String savedEmail, savedPassword;
 
     @Override
     protected void onStart() {
         super.onStart();
-        if (emailses != null && passwordses != null) {
+        if (savedEmail != null && savedPassword != null) {
             Response.Listener<String> listener = new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
             };
-            LoginRequest loginRequest = new LoginRequest(emailses.toString(), passwordses.toString(),listener,null);
+            LoginRequest loginRequest = new LoginRequest(savedEmail.toString(), savedPassword.toString(),listener,null);
             RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
             requestQueue.add(loginRequest);
         }
@@ -95,8 +95,8 @@ public class LoginActivity extends AppCompatActivity {
         // we are passing key value as EMAIL_KEY and
         // default value is
         // set to null if not present.
-        emailses = sharedpreferences.getString(EMAIL_KEY, null);
-        passwordses = sharedpreferences.getString(PASSWORD_KEY, null);
+        savedEmail = sharedpreferences.getString(EMAIL_KEY, null);
+        savedPassword = sharedpreferences.getString(PASSWORD_KEY, null);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override

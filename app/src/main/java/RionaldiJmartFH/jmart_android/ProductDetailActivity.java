@@ -2,6 +2,7 @@ package RionaldiJmartFH.jmart_android;
 
 import static RionaldiJmartFH.jmart_android.FilterFragment.productName;
 import static RionaldiJmartFH.jmart_android.FilterFragment.products;
+import static RionaldiJmartFH.jmart_android.LoginActivity.getLoggedAccount;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -112,7 +113,7 @@ public class ProductDetailActivity extends AppCompatActivity {
 
                     }
                 };
-                PaymentCreateRequest paymentReq = new PaymentCreateRequest(String.valueOf(pr.get(0)), String.valueOf(pr.get(8)),ProdCount.getText().toString(),
+                PaymentCreateRequest paymentReq = new PaymentCreateRequest(String.valueOf(getLoggedAccount().id), String.valueOf(pr.get(8)),ProdCount.getText().toString(),
                         Address.getText().toString(),String.valueOf(pr.get(7)),listener,errorListener);
                 RequestQueue requestQueue = Volley.newRequestQueue(ProductDetailActivity.this);
                 requestQueue.add(paymentReq);
