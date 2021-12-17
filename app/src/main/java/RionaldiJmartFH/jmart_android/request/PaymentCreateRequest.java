@@ -11,7 +11,7 @@ public class PaymentCreateRequest extends StringRequest {
     private static final String URL = "http://10.0.2.2:6969/payment/create";
     private final Map<String,String> params;
 
-    public PaymentCreateRequest(String buyerId, String productId, String productCount, String shipmentAddress, String  shipmentPlan,
+    public PaymentCreateRequest(String buyerId, String productId, String productCount, String shipmentAddress, String shipmentPlan,
                                 Response.Listener<String> listener, Response.ErrorListener errorListener){
         super(Request.Method.POST, URL, listener, errorListener);
         params = new HashMap<>();

@@ -3,12 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/drawable/ic_baseline_add_box_24.xml" value="0.19594594594594594" />
+        <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.19594594594594594" />
         <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/drawable/ic_login_bk.xml" value="0.29074074074074074" />
+        <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/drawable/ic_wave.xml" value="0.19594594594594594" />
         <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/drawable/login_button_bk.xml" value="0.28888888888888886" />
         <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/drawable/login_shape_bk.xml" value="0.29074074074074074" />
         <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/layout/activity_about_me.xml" value="0.33" />
         <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/layout/activity_aboutme.xml" value="0.15303430079155672" />
+        <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/layout/activity_confirmation.xml" value="0.31351351351351353" />
+        <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/layout/activity_create_payment.xml" value="0.31351351351351353" />
         <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/layout/activity_create_product.xml" value="0.33" />
+        <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/layout/activity_invoice.xml" value="0.18" />
+        <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/layout/activity_invoice_detail.xml" value="0.31351351351351353" />
         <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/PrakOOP2/jmartandroid/app/src/main/res/layout/activity_product_detail.xml" value="0.33" />

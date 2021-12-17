@@ -5,6 +5,7 @@ import static RionaldiJmartFH.jmart_android.LoginActivity.getLoggedAccount;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -42,6 +43,15 @@ public class AboutMeActivity extends AppCompatActivity {
         EmailDyn.setText(getLoggedAccount().email);
         BalanceDyn.setText(String.valueOf(getLoggedAccount().balance));
         Button topUpButton = findViewById(R.id.TopUpButton);
+        Button invoice = findViewById(R.id.InvoiceButton);
+        invoice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (AboutMeActivity.this, InvoiceActivity.class);
+                startActivity(intent);
+
+            }
+        });
         topUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +100,14 @@ public class AboutMeActivity extends AppCompatActivity {
                 EditText storePhoneNumber = findViewById(R.id.RegisterPhone);
 
                 Button cancel = findViewById(R.id.CancelButton);
+                Button InvoiceButton = findViewById(R.id.InvoiceButton);
+                InvoiceButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(AboutMeActivity.this,InvoiceActivity.class);
+                        startActivity(intent);
+                    }
+                });
                 cancel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

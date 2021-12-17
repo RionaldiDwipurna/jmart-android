@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -46,7 +45,7 @@ public class CreateProductActivity extends AppCompatActivity {
         Spinner productCategory = findViewById(R.id.categorySpinner);
         Spinner productShipmentPlans = findViewById(R.id.shipmentSpinner);
 
-        Button productCreate = findViewById(R.id.CreateButt);
+        Button productCreate = findViewById(R.id.SubmitButton);
         Button cancelB = findViewById(R.id.CancelButt);
         productCategory.setAdapter(new ArrayAdapter<ProductCategory>(this, android.R.layout.simple_spinner_dropdown_item, ProductCategory.values()));
 
@@ -54,6 +53,7 @@ public class CreateProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+//                System.out.println(productShipmentPlans.getSelectedItem().toString());
             }
         });
         productCreate.setOnClickListener(new View.OnClickListener() {
@@ -104,17 +104,18 @@ public class CreateProductActivity extends AppCompatActivity {
     }
 
     private byte checkShipmentPlan(Spinner productShipmentPlan) {
-        if (productShipmentPlan.getSelectedItem() == "INSTANT") {
-            return (byte)00000001;
-        } else if (productShipmentPlan.getSelectedItem() == "SAME DAY") {
-            return (byte)00000010;
-        } else if (productShipmentPlan.getSelectedItem() == "NEXT DAY") {
-            return (byte)00000100;
-        } else if (productShipmentPlan.getSelectedItem() == "REGULER") {
-            return (byte)00001000;
-        } else if (productShipmentPlan.getSelectedItem() == "KARGO") {
-            return (byte)00010000;
+        byte bit = 1;
+        if (productShipmentPlan.getSelectedItem().toString().equals("INSTANT")) {
+            bit = (byte)1;
+        } else if (productShipmentPlan.getSelectedItem().toString().equals("SAME DAY")) {
+            bit = (byte)2;
+        } else if (productShipmentPlan.getSelectedItem().toString().equals("NEXT DAY")) {
+            bit = (byte)4;
+        } else if (productShipmentPlan.getSelectedItem().toString().equals("REGULER")) {
+            bit = (byte)8;
+        } else if (productShipmentPlan.getSelectedItem().toString().equals("KARGO")) {
+            bit = (byte)16;
         }
-        return 0;
+        return bit;
     }
 }

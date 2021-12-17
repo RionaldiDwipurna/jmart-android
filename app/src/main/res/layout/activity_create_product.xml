@@ -11,6 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <View
+            android:id="@+id/view2"
+            android:layout_width="321dp"
+            android:layout_height="126dp"
+
+            android:layout_marginEnd="190dp"
+            android:layout_marginBottom="250dp"
+            android:background="@drawable/ic_wave"
+            android:rotation="90"
+            android:scaleX="4.8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view"
             android:layout_width="335dp"
@@ -191,14 +204,12 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/CreateButt"
+            android:id="@+id/SubmitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
             android:layout_marginTop="24dp"
             android:text="Create"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/GreyButtom"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card_view" />
 
@@ -209,10 +220,9 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="64dp"
             android:text="Cancel"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/GreyButtom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card_view" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </FrameLayout>

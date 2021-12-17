@@ -23,5 +23,12 @@
         app:showAsAction="collapseActionView|always"
         />
 
+    <item
+        android:id="@+id/logOut"
+        android:icon="@drawable/ic_baseline_login_24"
+        android:title="Person"
+        app:showAsAction="collapseActionView|always"
+        />
+
 
 </menu>

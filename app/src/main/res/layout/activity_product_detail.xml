@@ -50,6 +50,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <Button
+                    android:id="@+id/CreatePayButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="116dp"
+                    android:layout_marginBottom="40dp"
+                    android:text="Create"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
                 <TextView
                     android:id="@+id/ProductDetail"
                     android:layout_width="135dp"
@@ -165,6 +175,32 @@
                     android:textAlignment="textEnd"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ProductPriceView" />
+
+                <EditText
+                    android:id="@+id/ShipAddress"
+                    android:layout_width="212dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginBottom="224dp"
+                    android:ems="10"
+                    android:hint="Address"
+                    android:inputType="textPersonName"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/ProductCount"
+                    android:layout_width="212dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginBottom="168dp"
+                    android:ems="10"
+                    android:hint="Product count"
+                    android:inputType="numberSigned"
+                    android:textSize="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

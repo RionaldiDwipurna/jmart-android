@@ -6,7 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +18,18 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 public class MainActivity extends AppCompatActivity{
+    // creating constant keys for shared preferences.
+    public static final String SHARED_PREFS = "shared_prefs";
+
+    // key for storing email.
+    public static final String EMAIL_KEY = "email_key";
+
+    // key for storing password.
+    public static final String PASSWORD_KEY = "password_key";
+
+    // variable for shared preferences.
+    SharedPreferences sharedpreferences;
+    String email;
 
 
     ViewPager2 viewpager2;
@@ -27,6 +41,13 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        getSupportActionBar().hide();
+
+        // initializing our shared preferences.
+        sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+
+        // getting data from shared prefs and
+        // storing it in our string variable.
+        email = sharedpreferences.getString(EMAIL_KEY, null);
 
         viewpager2 = findViewById(R.id.viewPager);
         tablayout = findViewById(R.id.simpleTabLayout);
@@ -70,6 +91,23 @@ public class MainActivity extends AppCompatActivity{
             case R.id.AddItem:
                 Intent intent2 = new Intent(this, CreateProductActivity.class);
                 this.startActivity(intent2);
+                break;
+            case R.id.logOut:
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+
+                // below line will clear
+                // the data in shared prefs.
+                editor.clear();
+
+                // below line will apply empty
+                // data to shared prefs.
+                editor.apply();
+
+                // starting mainactivity after
+                // clearing values in shared preferences.
+                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(i);
+                finish();
                 break;
             default:
                 return super.onOptionsItemSelected(item);

@@ -3,7 +3,9 @@ package RionaldiJmartFH.jmart_android;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +38,45 @@ public class LoginActivity extends AppCompatActivity {
         return loggedAccount;
     }
 
+    // creating constant keys for shared preferences.
+    public static final String SHARED_PREFS = "shared_prefs";
+
+    // key for storing email.
+    public static final String EMAIL_KEY = "email_key";
+
+    // key for storing password.
+    public static final String PASSWORD_KEY = "password_key";
+
+    // variable for shared preferences.
+    SharedPreferences sharedpreferences;
+    String emailses, passwordses;
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (emailses != null && passwordses != null) {
+            Response.Listener<String> listener = new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    try{
+                        JSONObject object = new JSONObject(response);
+                        if(object != null){
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            loggedAccount = gson.fromJson(object.toString(), Account.class);
+                            startActivity(intent);
+                        }
+                    }catch (JSONException e){
+                        e.printStackTrace();
+                        Toast.makeText(LoginActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            };
+            LoginRequest loginRequest = new LoginRequest(emailses.toString(), passwordses.toString(),listener,null);
+            RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
+            requestQueue.add(loginRequest);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +86,18 @@ public class LoginActivity extends AppCompatActivity {
         EditText password = findViewById(R.id.editTextPassword);
         Button button = findViewById(R.id.cirLoginButton);
         TextView register = findViewById(R.id.Register2);
+
+
+        // getting the data which is stored in shared preferences.
+        sharedpreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+
+        // in shared prefs inside het string method
+        // we are passing key value as EMAIL_KEY and
+        // default value is
+        // set to null if not present.
+        emailses = sharedpreferences.getString(EMAIL_KEY, null);
+        passwordses = sharedpreferences.getString(PASSWORD_KEY, null);
+
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +114,16 @@ public class LoginActivity extends AppCompatActivity {
                         try{
                             JSONObject object = new JSONObject(response);
                             if(object != null){
+                                SharedPreferences.Editor editor = sharedpreferences.edit();
+
+                                // below two lines will put values for
+                                // email and password in shared preferences.
+                                editor.putString(EMAIL_KEY, email.getText().toString());
+                                editor.putString(PASSWORD_KEY, password.getText().toString());
+
+                                // to save our data with key and value.
+                                editor.apply();
+
                                 Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 loggedAccount = gson.fromJson(object.toString(), Account.class);
